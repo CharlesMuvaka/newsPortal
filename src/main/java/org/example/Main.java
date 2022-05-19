@@ -18,6 +18,14 @@ public class Main {
         WorkerDao workerDao  = new WorkerDao();
         NewsDao newsDao = new NewsDao();
 
+        //Create a new Department
+        post("/departments/new", "application/json", (req, res) -> { //accept a request in format JSON
+            Department  dept = gson.fromJson(req.body(), Department.class);//make with GSON
+            deptDao.addDept(dept);//Do our thing with our DAO
+            res.status(201);//everything went well - update the response status code
+            return gson.toJson(dept);//send it back to be displayed
+        });
+
 
 
 
