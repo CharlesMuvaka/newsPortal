@@ -108,7 +108,16 @@ public class Main {
             return gson.toJson(newsDao.getNewsById(newsId));//send it back to be displayed
         });
 
+        //get News in a certain department
+        get("/dept/:id/news", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            int deptId = Integer.parseInt(req.params("id"));
 
+
+            System.out.println(newsDao.newsInADept(deptId));
+            return gson.toJson(newsDao.newsInADept(deptId));//send it back to be displayed
+        });
+
+        after((req,res)-> res.type("application/json"));
 
 
 
