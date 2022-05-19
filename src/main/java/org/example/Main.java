@@ -70,6 +70,15 @@ public class Main {
             return gson.toJson(workerDao.getWorkerById(workerId));//send it back to be displayed
         });
 
+        //get workers in a department
+        get("/dept/:id/workers", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            int deptId = Integer.parseInt(req.params(":id"));
+
+
+            System.out.println(workerDao.getWorkersByDepartmentId(deptId));
+            return gson.toJson(workerDao.getWorkersByDepartmentId(deptId));//send it back to be displayed
+        });
+
 
 
 
