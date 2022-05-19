@@ -99,6 +99,15 @@ public class Main {
         });
 
 
+        //get a single news article
+        get("/news/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            int newsId = Integer.parseInt(req.params("id"));
+
+
+            System.out.println(newsDao.getNewsById(newsId));
+            return gson.toJson(newsDao.getNewsById(newsId));//send it back to be displayed
+        });
+
 
 
 
