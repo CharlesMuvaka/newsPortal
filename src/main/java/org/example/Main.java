@@ -42,6 +42,17 @@ public class Main {
             return gson.toJson(deptDao.getDeptByID(deptId));
         });
 
+        //adding a new worker
+        post("/worker/new","application/json" ,(request, response)->{
+            Worker newWorker = gson.fromJson(request.body(), Worker.class);
+            workerDao.addWorker(newWorker);
+
+            response.status(201);
+            System.out.println(newWorker);
+            return gson.toJson(newWorker);
+
+        });
+
 
 
 
