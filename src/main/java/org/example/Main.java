@@ -61,6 +61,15 @@ public class Main {
             return gson.toJson(workerDao.allWorkers());//send it back to be displayed
         });
 
+        //get a single worker by id
+        get("/worker/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            int workerId = Integer.parseInt(req.params(":id"));
+            res.type("application/json");
+
+            System.out.println(workerDao.getWorkerById(workerId));
+            return gson.toJson(workerDao.getWorkerById(workerId));//send it back to be displayed
+        });
+
 
 
 
