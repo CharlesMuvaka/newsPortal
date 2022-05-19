@@ -53,6 +53,14 @@ public class Main {
 
         });
 
+        //getting all workers
+        get("/workers", "application/json", (req, res) -> { //accept a request in format JSON from an app
+            res.type("application/json");
+
+            System.out.println(workerDao.allWorkers());
+            return gson.toJson(workerDao.allWorkers());//send it back to be displayed
+        });
+
 
 
 
