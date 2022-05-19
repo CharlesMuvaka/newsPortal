@@ -35,6 +35,13 @@ public class Main {
             return gson.toJson(deptDao.allDepts());//send it back to be displayed
         });
 
+        //get Department by id
+        get("/departments/:id", "application/json", (req, res) -> { //accept a request in format JSON from an app
+
+            int deptId = Integer.parseInt(req.params("id"));
+            return gson.toJson(deptDao.getDeptByID(deptId));
+        });
+
 
 
 
