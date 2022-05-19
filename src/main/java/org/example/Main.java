@@ -90,6 +90,15 @@ public class Main {
 
         });
 
+        //get all News
+        get("/news", "application/json", (req, res) -> { //accept a request in format JSON from an app
+
+
+            System.out.println(newsDao.getAllNews());
+            return gson.toJson(newsDao.getAllNews());//send it back to be displayed
+        });
+
+
 
 
 
