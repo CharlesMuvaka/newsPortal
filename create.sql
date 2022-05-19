@@ -1,4 +1,4 @@
-CREATE DATABASE news_portal_test;
+CREATE DATABASE news_portal;
 \c news_portal_test
 
 CREATE TABLE workers(
