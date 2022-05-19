@@ -19,12 +19,12 @@ public class Worker {
         if (this == o) return true;
         if (!(o instanceof Worker)) return false;
         Worker worker = (Worker) o;
-        return id == worker.id && departmentId == worker.departmentId && Objects.equals(workerName, worker.workerName) && Objects.equals(workerPosition, worker.workerPosition);
+        return getDepartmentId() == worker.getDepartmentId() && Objects.equals(workerName, worker.workerName) && Objects.equals(workerPosition, worker.workerPosition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, departmentId, workerName, workerPosition);
+        return Objects.hash(getDepartmentId(), workerName, workerPosition);
     }
 
     public int getId() {
