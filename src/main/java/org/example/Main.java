@@ -79,6 +79,17 @@ public class Main {
             return gson.toJson(workerDao.getWorkersByDepartmentId(deptId));//send it back to be displayed
         });
 
+        //Create new News
+        post("/News/new","application/json" ,(request, response)->{
+            News userNews = gson.fromJson(request.body(), News.class);
+            newsDao.addNews(userNews);
+
+            response.status(201);
+            System.out.println(userNews);
+            return gson.toJson(userNews);
+
+        });
+
 
 
 
