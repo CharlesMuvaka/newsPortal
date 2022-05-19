@@ -27,6 +27,15 @@ public class Main {
         });
 
 
+        //get all Departments
+        get("/departments", "application/json", (req, res) -> { //accept a request in format JSON from an app
+
+
+            System.out.println(deptDao.allDepts());
+            return gson.toJson(deptDao.allDepts());//send it back to be displayed
+        });
+
+
 
 
 
