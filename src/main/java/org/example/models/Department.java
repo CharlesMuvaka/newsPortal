@@ -17,12 +17,12 @@ public class Department {
         if (this == o) return true;
         if (!(o instanceof Department)) return false;
         Department that = (Department) o;
-        return id == that.id && Objects.equals(name, that.name) && Objects.equals(description, that.description);
+        return Objects.equals(getName(), that.getName()) && Objects.equals(getDescription(), that.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description);
+        return Objects.hash(getName(), getDescription());
     }
 
     public int getId() {
