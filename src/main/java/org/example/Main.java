@@ -32,7 +32,10 @@ public class Main {
 
             }else if(deptDao.allDepts().contains(dept)){
                 throw new ApiException(404, "The department provided already exists");
-            }else {
+            }else if(dept == null) {
+                throw new ApiException(404, "Please fill in the required fields");
+            }
+            else {
                 deptDao.addDept(dept);//Do our thing with our DAO
                 res.status(201);//everything went well - update the response status code
                 return gson.toJson(dept);//send it back to be displayed
@@ -122,7 +125,7 @@ public class Main {
         });
 
         //Create new News
-        post("/News/new","application/json" ,(request, response)->{
+        post("/news/new","application/json" ,(request, response)->{
             News userNews = gson.fromJson(request.body(), News.class);
 
             if(userNews.getDepartmentId() <= 0 || userNews.getTopic().equals("") || userNews.getDescription().equals("")){
