@@ -1,5 +1,5 @@
 CREATE DATABASE news_portal;
-\c news_portal_test
+\c news_portal
 
 CREATE TABLE workers(
 id serial PRIMARY KEY,
